@@ -1,0 +1,22 @@
+function myDisplay(data){
+    console.log(data)
+    }
+    
+    function adatLekeres(fajl,myCallback){
+        fetch(fajl, {
+        method: 'GET', // or 'PUT'
+        headers: {
+          'Content-Type': 'application/json',
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => myCallback(data.konyv));
+    }
+    
+    function htmBe(data){
+        document.querySelector('body').innerHTML = data
+    }
+    
+    adatLekeres("adat.json",myDisplay);
+    adatLekeres("adat.json",htmBe);
+    console.log("hi");
